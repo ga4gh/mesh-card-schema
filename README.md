@@ -29,8 +29,8 @@ We recommend using Conda to manage dependencies.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/biodata-validator.git
-cd biodata-validator
+git clone git@github.com:ga4gh/mesh-card-schema.git
+cd mesh-card-schema
 ```
 
 ### 2. Create Conda Env
