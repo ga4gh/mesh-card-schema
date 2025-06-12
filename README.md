@@ -36,8 +36,8 @@ cd mesh-card-schema
 ### 2. Create Conda Env
 
 ```bash
-conda create -n biodata-validator python=3.10
-conda activate biodata-validator
+conda create -n mesh-card-schema python=3.10
+conda activate mesh-card-schema
 ```
 
 ### 3. Install Deps
