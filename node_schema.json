@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BioData Catalyst Mesh Card Schema",
+  "type": "object",
+  "required": ["card_type", "id", "meshcard_version", "description", "node_url", "mesh_metadata_api", "node_metadata_api", "authz_api", "data_api", "metadata_adapters"],
+  "properties": {
+    "card_type": { "type": "string" },
+    "id": { "type": "string" },
+    "meshcard_version": { "type": "string" },
+    "description": { "type": "string" },
+    "node_url": { "type": "string", "format": "uri" },
+    
+    "mesh_metadata_api": {
+      "type": "object",
+      "required": ["standard", "version", "endpoint"],
+      "properties": {
+        "standard": { "type": "string" },
+        "version": { "type": "string" },
+        "endpoint": { "type": "string" }
+      }
+    },
+
+    "node_metadata_api": {
+      "type": "object",
+      "required": ["standard", "version", "endpoint"],
+      "properties": {
+        "standard": { "type": "string" },
+        "version": { "type": "string" },
+        "endpoint": { "type": "string" }
+      }
+    },
+
+    "authz_api": {
+      "type": "object",
+      "required": ["standard", "version", "endpoint"],
+      "properties": {
+        "standard": { "type": "string" },
+        "version": { "type": "string" },
+        "endpoint": { "type": "string" }
+      }
+    },
+
+    "data_api": {
+      "type": "object",
+      "required": ["standard", "version", "endpoint"],
+      "properties": {
+        "standard": { "type": "string" },
+        "version": { "type": "string" },
+        "endpoint": { "type": "string" }
+      }
+    },
+
+    "metadata_adapters": {
+      "type": "object",
+      "patternProperties": {
+        "^.*$": {
+          "type": "object",
+          "required": ["mds_url", "commons_url", "adapter", "config", "keep_original_fields", "field_mappings"],
+          "properties": {
+            "mds_url": { "type": "string", "format": "uri" },
+            "commons_url": { "type": "string" },
+            "adapter": { "type": "string" },
+            "config": {
+              "type": "object",
+              "required": ["guid_type", "study_field"],
+              "properties": {
+                "guid_type": { "type": "string" },
+                "study_field": { "type": "string" }
+              }
+            },
+            "keep_original_fields": { "type": "boolean" },
+            "field_mappings": {
+              "type": "object",
+              "properties": {
+                "authz": { "type": "string" },
+                "tags": { "type": "string" },
+                "_unique_id": { "type": "string" },
+                "study_id": { "type": "string" },
+                "study_description": { "type": "string" },
+                "full_name": { "type": "string" },
+                "short_name": { "type": "string" },
+                "commons": { "type": "string" },
+                "study_url": { "type": "string" },
+                "_subjects_count": {
+                  "type": "object",
+                  "required": ["path", "default"],
+                  "properties": {
+                    "path": { "type": "string" },
+                    "default": { "type": "number" }
+                  }
+                },
+                "__manifest": { "type": "string" },
+                "commons_url": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
